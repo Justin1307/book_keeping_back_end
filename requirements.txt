@@ -3,3 +3,5 @@ djangorestframework-3.11.1
 markdown
 django-filter
 mysqlclient
+django_mysql
+django-model-utils
