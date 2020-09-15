@@ -6,3 +6,11 @@ mysqlclient
 django_mysql
 django-model-utils
 Pillow
+pdf2image
+opencv-python==4.3.0.36
+pytesseract
+fuzzywuzzy
+forex-python
+pandas
+dateparser
+openpyxl

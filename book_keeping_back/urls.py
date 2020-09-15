@@ -18,11 +18,14 @@ from django.conf.urls import url
 from django.urls import path, include
 from rest_framework import routers
 from book_keeping_back.views import UserViewSet
+from .views import login
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 
+
 urlpatterns = [
+     path('api/login/', login),
     path('admin/', admin.site.urls),
     url(r'^api-auth/', include('rest_framework.urls')),
     path("supply/",include("supplyinvoice.urls")),
@@ -32,12 +35,5 @@ urlpatterns = [
     
 ]
 
-# Routers provide an easy way of automatically determining the URL conf.
 
 
-# Wire up our API using automatic URL routing.
-# Additionally, we include login URLs for the browsable API.
-# urlpatterns = [
-    
-#     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
-# ]

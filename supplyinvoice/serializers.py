@@ -1,14 +1,8 @@
-from supplyinvoice.models import ImageIdentification, ImageModel,MAppingModels
+from supplyinvoice.models import  ImageModel,MAppingModels,FileModel
 from rest_framework import serializers
 from rest_framework.validators import UniqueTogetherValidator
 
 # Serializers define the API representation.
-class ImageIdentificationSerializer(serializers.HyperlinkedModelSerializer):
-    img_id = serializers.UUIDField()
-    class Meta:
-        model = ImageIdentification
-        fields = ("img_id","text","img")
-
 class ImageModelSerializer(serializers.ModelSerializer):
     id                  = serializers.IntegerField(read_only=True)
     identification_text = serializers.CharField(required=True, allow_blank=False, max_length=100)
@@ -28,12 +22,19 @@ class MAppingModelsSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = MAppingModels
-        fields = ("id","text","type","x_axis","y_axis","width","height","status","block","csv_column","model_id","created_date")
+        fields = ("id","mapping","model_id","created_date")
         
-    
-        
+# class PDFModelSerializer(serializers.ModelSerializer):
+#     id  = serializers.IntegerField(read_only=True)
+#     class Meta:
+#         model = PDFModels
+#         fields = ("id","file")
 
 
+class FileSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = FileModel
+        fields = ("id","pdf_files","is_processed")
 
 
 
